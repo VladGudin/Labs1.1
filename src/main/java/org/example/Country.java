@@ -64,6 +64,8 @@ public class Country {
         double density = population/area;
         return population/area;
     }
+
+
     public static void printAll(Country[] startCountries) {
         for (int i = 0; i < 2; i++) {
             System.out.print(startCountries[i]);
