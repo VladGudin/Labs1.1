@@ -11,11 +11,9 @@ public class Countries {
 
 
 
-    
+
     public Countries(String name, double area, double population, String capital, double populationCapital) throws IOException {
-        setName(name);
-        setArea(area);
-        setPopulation(population);
+        this(name, area, population);
         setCapital(capital);
         setPopulationCapital(populationCapital);
 
