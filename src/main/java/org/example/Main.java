@@ -1,12 +1,8 @@
 package org.example;
-
-
 import java.io.IOException;
-
-
 public class Main {
-    public static void main(String[] args) throws IllegalArgumentException {
-        Country france = new Country();
+    public static void main(String[] args) throws IllegalArgumentException, IOException {
+        Countries france = new Countries();
         try {
             france.setName("Франция");
         } catch (IllegalArgumentException e) {
@@ -21,24 +17,22 @@ public class Main {
         }
         france.setPopulationCapital(2000);
         france.getDensity();
-        // france.setNull();// обнуление данных о столице
+        france.setNull();// обнуление данных о столице
 
-        System.out.println("Страна " + france.getName() + " Площадь страны " + france.getArea() + " км");
-        System.out.println("Население " + france.getPopulation() + " человек");
-        System.out.println("Столица " + france.getCapital());
-        System.out.println("Население столицы " + france.getPopulationCapital() + " человек");
-        System.out.println("Плотность населения " + france.getDensity());
+        france.print(france);
 
-        Country monaco = new Country();// второй конструктор для города-государства
+        Countries monaco = new Countries();// второй конструктор для города-государства
         monaco.setName("Монако");
         monaco.setArea(4000);
         monaco.setPopulation(8000);
 
-        Country[] startCountries = new Country[2];
+        Countries[] startCountries = new Countries[2];
         startCountries[0] = france;
         startCountries[1] = monaco;
-        Country.printAll(startCountries);// Печатает данные о странах в заданно
+        System.out.println("---------------");
+        Countries.printAll(startCountries);// Печатает данные о странах в заданно
         System.out.println(" "); // строка, чтобы массив countriesArray печатался на следующей строчке
+        System.out.println("---------------");
 
 
         Countries[] countriesArray = new Countries[5];// Массив
@@ -48,26 +42,7 @@ public class Main {
         countriesArray[3] = new Countries("Andorra", 0.467, 85.4, "Andorra la Vella", 22.6);
         countriesArray[4] = new Countries("Singapore", 0.725, 5700);
 
-
-        for (int i = 0; i < countriesArray.length; ++i) {
-            //System.out.println(countriesArray[i]);
-            { if (countriesArray[i].getCapital() == null || countriesArray[i].getCapital() == "") {
-                    System.out.println("Countries{" +
-                            "name=" + countriesArray[i].getName() + '\'' +
-                            ", area=" + countriesArray[i].getArea() + '\'' +
-                            ", population=" + countriesArray[i].getPopulation() + '\'' +
-                            '}');
-                } else {
-                    System.out.println("Countries{" +
-                            "name='" + countriesArray[i].getName() + '\'' +
-                            ", area='" + countriesArray[i].getArea() + '\'' +
-                            ", population='" + countriesArray[i].getPopulation() + '\'' +
-                            ", capital='" + countriesArray[i].getCapital() + '\'' +
-                            ", populationCapital='" + countriesArray[i].getPopulationCapital() + '\'' +
-                            '}');
-                }
-            }
-        }
+        Countries.printAll1(countriesArray);
     }
 }
 
