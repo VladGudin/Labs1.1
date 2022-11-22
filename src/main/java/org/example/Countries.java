@@ -9,10 +9,11 @@ public class Countries {
     private String capital;
     private double populationCapital;
 
+
+
+
     public Countries(String name, double area, double population, String capital, double populationCapital) throws IOException {
-        setName(name);
-        setArea(area);
-        setPopulation(population);
+        this(name, area, population);
         setCapital(capital);
         setPopulationCapital(populationCapital);
 
@@ -80,9 +81,9 @@ public class Countries {
     // Обнуляющий метод
 
     public void setNull () {
-    this.capital = null;
-    this.populationCapital = 0;
-}
+        this.capital = null;
+        this.populationCapital = 0;
+    }
 
     public String getName() {
         return name;
